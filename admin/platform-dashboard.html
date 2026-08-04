@@ -4,7 +4,12 @@
 <link rel="stylesheet" href="../assets/css/styles.css">
 <style>
 .platform-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}.platform-kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(5,56,46,.05)}.platform-kpi span{display:block;color:var(--muted);font-weight:700}.platform-kpi strong{display:block;color:var(--primary);font-size:31px;margin-top:7px}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.quick-card{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none;color:inherit;transition:.15s}.quick-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(5,56,46,.08)}.quick-card h3{margin:0 0 7px}.context-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.context-pill{background:#eef7f3;border:1px solid #cfe5db;border-radius:999px;padding:7px 11px;font-size:13px;font-weight:800}.status-list{display:grid;gap:10px}.status-row{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}.status-row:last-child{border-bottom:0}.status-badge{padding:5px 9px;border-radius:999px;background:#eaf6f1;font-size:12px;font-weight:800}.status-badge.warn{background:#fff3df}.empty{text-align:center;color:var(--muted);padding:22px;border:1px dashed var(--line);border-radius:14px}@media(max-width:900px){.platform-kpis{grid-template-columns:repeat(2,1fr)}.quick-grid{grid-template-columns:1fr}}@media(max-width:520px){.platform-kpis{grid-template-columns:1fr}.status-row{align-items:flex-start;flex-direction:column}}
-</style></head><body data-admin-page="platform-dashboard">
+</style><link rel="stylesheet" href="../assets/css/pwa.css">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="منصة رشيد">
+</head><body data-admin-page="platform-dashboard">
 <header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية والإدارية<small>لوحة المالك والمؤسس</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
 <main class="page"><div class="container layout">
 <aside class="sidebar"><a class="active" href="platform-dashboard.html">لوحة المالك</a><a href="organization.html">المؤسسات والمجمعات</a><a href="access-control.html">الأدوار والتكليفات</a><a href="platform-modules.html">الباقات والوحدات</a><a href="people.html">الأشخاص والحسابات</a><a href="academic-structure.html">الهيكل الأكاديمي</a><a href="dashboard.html">لوحة مدير المؤسسة</a></aside>
@@ -15,4 +20,5 @@
 <div class="quick-grid"><a class="quick-card" href="organization.html"><h3>المؤسسات والمجمعات</h3><p class="muted">إنشاء المؤسسات وربط المجمعات التعليمية وأقسام البنين والبنات والفروع بها.</p></a><a class="quick-card" href="access-control.html"><h3>الأدوار والتكليفات</h3><p class="muted">تحديد المسؤوليات والنطاق وتواريخ التكليف.</p></a><a class="quick-card" href="platform-modules.html"><h3>الباقات والوحدات</h3><p class="muted">اختيار الوحدات التي تستخدمها كل مؤسسة.</p></a></div>
 <div class="panel" style="margin-top:18px"><h2 style="margin-top:0">حالة اشتراكات المؤسسات</h2><div id="subscriptionsList" class="status-list"><div class="empty">جارٍ التحميل...</div></div></div>
 </section></div></main>
-<script src="../assets/js/admin.js?v=1.3.0"></script><script src="../assets/js/platform-dashboard.js?v=1.0.0"></script></body></html>
+<script src="../assets/js/admin.js?v=1.3.0"></script><script src="../assets/js/platform-dashboard.js?v=1.0.0"></script><script defer src="../assets/js/pwa.js"></script>
+</body></html>

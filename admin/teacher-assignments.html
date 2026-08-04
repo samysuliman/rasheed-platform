@@ -9,6 +9,11 @@
 @media(max-width:700px){.assignment-head{display:block}.assignment-head .btn{margin-top:10px}.assignment-row{grid-template-columns:1fr}.bulk-assignment{grid-template-columns:1fr}.bulk-assignment .btn,.actions .btn{width:100%}}
 .assignment-toast{position:fixed;left:24px;bottom:24px;z-index:9999;min-width:260px;max-width:420px;padding:13px 16px;border-radius:13px;background:#0b7657;color:#fff;box-shadow:0 12px 28px rgba(0,0,0,.18);font-weight:700;opacity:0;transform:translateY(12px);pointer-events:none;transition:.22s}.assignment-toast.show{opacity:1;transform:translateY(0)}.assignment-toast.error{background:#a33a2b}@media(max-width:700px){.assignment-toast{left:14px;right:14px;bottom:14px;min-width:0}}
 </style>
+<link rel="stylesheet" href="../assets/css/pwa.css">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="منصة رشيد">
 </head>
 <body data-admin-page="teacher-assignments">
 <header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>إسناد المعلمين</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
@@ -30,4 +35,5 @@
 <div id="assignmentToast" class="assignment-toast" role="status" aria-live="polite"></div>
 <script src="../assets/js/admin.js?v=10.0.0"></script>
 <script>document.addEventListener('click',e=>{const a=e.target.closest('[data-demo-alert]');if(a){e.preventDefault();alert('هذه الوحدة ضمن المرحلة التالية من نظام الأكاديمية.');}});</script>
+<script defer src="../assets/js/pwa.js"></script>
 </body></html>

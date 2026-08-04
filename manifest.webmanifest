@@ -1,10 +1,10 @@
 {
-  "name": "منصة رشيد التعليمية | Rasheed Education Platform",
+  "name": "منصة رشيد التعليمية",
   "short_name": "منصة رشيد",
-  "description": "منصة سحابية مستقلة لإدارة المؤسسات والمجمعات والفروع والمدارس.",
+  "description": "إدارة ذكية للمؤسسات التعليمية",
   "lang": "ar",
   "dir": "rtl",
-  "start_url": "./index.html",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f7f2e8",
@@ -20,7 +20,23 @@
       "src": "assets/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
+  ],
+  "id": "./",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "any",
+  "categories": [
+    "education",
+    "productivity"
   ]
 }

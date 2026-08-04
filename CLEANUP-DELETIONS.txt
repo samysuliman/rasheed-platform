@@ -1,0 +1,10 @@
+احذف الملفات التالية من المستودع إن بقيت من الإصدار السابق:
+
+assets/js/app.js
+assets/js/student-fixed.js
+assets/images/platform/platform-hero-education-bg.webp
+assets/images/platform/platform-management-meeting-bg.png
+assets/logos/logo-icon.png.jpeg
+assets/logos/rasheed-header-logo-ar.png
+assets/logos/rasheed-header-logo-en.png
+student/dashboard-fixed.html

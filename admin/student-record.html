@@ -76,6 +76,11 @@ textarea{width:100%;min-height:105px;padding:13px 14px;border:1px solid #cddbd5;
 .student-profile{background:transparent;border:0;box-shadow:none;overflow:visible}
 .profile-section{background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:14px}
 </style>
+<link rel="stylesheet" href="../assets/css/pwa.css">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="منصة رشيد">
 </head>
 <body data-admin-page="student-record">
 <header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>سجل الطالب</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
@@ -178,5 +183,6 @@ textarea{width:100%;min-height:105px;padding:13px 14px;border:1px solid #cddbd5;
   document.addEventListener('click',e=>{const a=e.target.closest('[data-demo-alert]');if(a){e.preventDefault();alert('سجل الحصص والتقييم التفصيلي هو المرحلة التالية بعد تفعيل سجل الطالب الأساسي.');}});
 })();
 </script>
+<script defer src="../assets/js/pwa.js"></script>
 </body>
 </html>

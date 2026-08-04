@@ -1,0 +1,16 @@
+
+:root{--pwa-green:#073d32;--pwa-gold:#d6a72f;--pwa-cream:#fbf7ee}
+#pwa-install-button{position:fixed;left:18px;bottom:18px;z-index:99990;border:1px solid rgba(214,167,47,.75);border-radius:999px;background:linear-gradient(135deg,#efc44c,#d6a72f);color:#063d32;font:700 15px/1.2 system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;padding:12px 18px;box-shadow:0 10px 28px rgba(0,0,0,.25);cursor:pointer;display:none;align-items:center;gap:8px;transition:.2s transform,.2s box-shadow}
+#pwa-install-button:hover{transform:translateY(-2px);box-shadow:0 13px 32px rgba(0,0,0,.30)}
+#pwa-install-button:focus-visible{outline:3px solid rgba(214,167,47,.45);outline-offset:3px}
+#pwa-ios-help{position:fixed;inset:0;z-index:100001;background:rgba(0,36,30,.74);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl}
+#pwa-ios-help .pwa-card{width:min(460px,100%);background:#fffdf8;border:1px solid #d6a72f;border-radius:22px;padding:26px;text-align:center;color:#073d32;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+#pwa-ios-help button{margin-top:16px;border:0;border-radius:12px;padding:11px 24px;background:#073d32;color:white;font-weight:800;cursor:pointer}
+#pwa-splash{position:fixed;inset:0;z-index:100000;background:linear-gradient(155deg,#073d32,#032d26);display:none;align-items:center;justify-content:center;color:#fff;text-align:center;direction:rtl;transition:opacity .35s ease}
+#pwa-splash .pwa-splash-inner{padding:28px;animation:pwaPop .55s ease both}
+#pwa-splash img{width:132px;height:132px;object-fit:contain;border-radius:28px;background:#fff;padding:10px;box-shadow:0 15px 45px rgba(0,0,0,.30)}
+#pwa-splash h1{margin:20px 0 8px;font:800 clamp(24px,5vw,38px)/1.35 system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;color:#fff}
+#pwa-splash p{margin:0;color:#efc44c;font:700 clamp(15px,3vw,20px)/1.7 system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
+@keyframes pwaPop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+@media(max-width:700px){#pwa-install-button{left:12px;bottom:12px;padding:11px 15px;font-size:14px}}
+@media(display-mode:standalone){#pwa-install-button{display:none!important}}
