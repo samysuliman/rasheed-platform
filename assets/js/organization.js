@@ -3,7 +3,7 @@
   const $ = id => document.getElementById(id);
   const statusName = s => ({active:"نشط",inactive:"غير نشط",archived:"مؤرشف"})[s] || s;
   const branchTypeName = s => ({main:"رئيسي",physical:"حضوري",online:"إلكتروني",hybrid:"مدمج"})[s] || s;
-  const educationTypeName = s => ({private:'أهلي',international:'عالمي',egyptian:'مصري',quran:'قرآن كريم ودراسة حرة',training:'تدريب',other:'أخرى'})[s] || s || 'غير محدد';
+  const educationTypeName = s => ({private:'أهلي',international:'عالمي',egyptian:'مصري',learning_center:'مركز تعليمي',training:'تدريب',other:'أخرى'})[s] || s || 'غير محدد';
   const genderName = s => ({boys:'قسم البنين',girls:'قسم البنات',mixed:'قسم مشترك',unspecified:'غير محدد'})[s] || s || 'غير محدد';
   const complexDisplayName = x => { const base=x.complex_name||x.name_ar||'مجمع'; const type=educationTypeName(x.education_type||x.school_type); const gender=genderName(x.gender_section||x.gender_scope); return x.display_name || `${base} ${type} - ${gender}`; };
 
@@ -59,7 +59,7 @@
       $("dynamicFields").innerHTML = input("code","الرمز المختصر")+input("name_ar","الاسم العربي")+input("name_en","الاسم الإنجليزي",false)+input("email","البريد الإلكتروني",false,"email")+input("phone","رقم الهاتف",false)+select("status","الحالة",[["active","نشط"],["inactive","غير نشط"]]);
     } else if(type === "school"){
       $("dialogTitle").textContent = "إضافة مجمع تعليمي / قسم";
-      $("dynamicFields").innerHTML = select("organization_id","المؤسسة",state.organizations.map(x=>[x.id,x.name_ar]))+input("code","الرمز المختصر")+input("complex_name","اسم المجمع الأساسي (مثال: مجمع العارض)")+input("name_en","الاسم الإنجليزي",false)+select("education_type","نوع المجمع",[["private","أهلي"],["international","عالمي"],["egyptian","مصري"],["quran","قرآن كريم ودراسة حرة"],["training","تدريب"],["other","أخرى"]])+select("gender_section","القسم",[["boys","قسم البنين"],["girls","قسم البنات"],["mixed","قسم مشترك"],["unspecified","غير محدد"]]);
+      $("dynamicFields").innerHTML = select("organization_id","المؤسسة",state.organizations.map(x=>[x.id,x.name_ar]))+input("code","الرمز المختصر")+input("complex_name","اسم المجمع الأساسي (مثال: مجمع العارض)")+input("name_en","الاسم الإنجليزي",false)+select("education_type","نوع المجمع",[["private","أهلي"],["international","عالمي"],["egyptian","مصري"],["learning_center","مركز تعليمي"],["training","تدريب"],["other","أخرى"]])+select("gender_section","القسم",[["boys","قسم البنين"],["girls","قسم البنات"],["mixed","قسم مشترك"],["unspecified","غير محدد"]]);
     } else {
       $("dialogTitle").textContent = "إضافة فرع";
       $("dynamicFields").innerHTML = select("school_id","المجمع / القسم",state.schools.map(x=>[x.id,complexDisplayName(x)]))+input("code","الرمز المختصر")+input("name_ar","الاسم العربي")+input("name_en","الاسم الإنجليزي",false)+select("branch_type","نوع الفرع",[["main","رئيسي"],["physical","حضوري"],["online","إلكتروني"],["hybrid","مدمج"]])+input("city","المدينة",false)+`<div><label><input name="is_main" type="checkbox"> تعيينه فرعًا رئيسيًا</label></div>`;

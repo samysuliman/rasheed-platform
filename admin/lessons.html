@@ -264,9 +264,9 @@
               <select id="lessonTeacher" required><option value="">اختر المعلم</option></select>
             </div>
             <div class="field">
-              <label for="lessonTrack">المسار</label>
+              <label for="lessonTrack">البرنامج / المادة</label>
               <select id="lessonTrack" required>
-                <option value="">اختر المسار</option>
+                <option value="">اختر المادة / البرنامج</option>
               </select>
             </div>
             <div class="field date-field">
@@ -368,7 +368,7 @@
             <tr>
               <th>الطالب</th>
               <th>المعلم</th>
-              <th>المسار</th>
+              <th>البرنامج / المادة</th>
               <th>التاريخ</th>
               <th>البداية</th>
               <th>النهاية</th>
@@ -471,7 +471,7 @@
     if(!res.ok) throw new Error(await res.text());
     const tracks = await res.json();
     tracksMap = new Map(tracks.map(x => [String(x.id), x]));
-    el("lessonTrack").innerHTML = '<option value="">اختر المسار</option>' +
+    el("lessonTrack").innerHTML = '<option value="">اختر المادة / البرنامج</option>' +
       tracks.map(x => `<option value="${esc(x.id)}">${esc(x.name_ar)}</option>`).join("");
   }
 

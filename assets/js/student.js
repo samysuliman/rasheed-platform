@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 
-const MATERIAL_TRACKS=["التأسيس","التلاوة والتجويد","الحفظ والإتقان","الإجازة والسند","العقيدة","الفقه","الحديث","التفسير","السيرة النبوية","العربية لغير الناطقين بها"];
+const MATERIAL_TRACKS=["اللغة العربية","اللغة الإنجليزية","الرياضيات","العلوم","الدراسات الإسلامية","الدراسات الاجتماعية","الحاسب","مهارات إدارية","برنامج تدريبي","أخرى"];
 let studentMaterialsCache=[];
 function materialDate(v){try{return new Intl.DateTimeFormat("ar-SA",{dateStyle:"medium"}).format(new Date(v));}catch{return v||"—";}}
 async function loadStudentMaterials(studentId){
