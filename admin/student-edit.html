@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تعديل بيانات الطالب | منصة رشيد التعليمية</title><link rel="stylesheet" href="../assets/css/styles.css?v=9.0.0">
+<style>
+.edit-wrap{max-width:760px;margin:auto}.edit-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:20px}.edit-card{border:1px solid #dbe7e1;border-radius:18px;padding:22px;background:#fff;box-shadow:0 7px 22px rgba(18,72,55,.05)}.edit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.edit-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.readonly-code{padding:12px 14px;border:1px solid #e1ebe6;border-radius:13px;background:#f8fbf9}.readonly-code span{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.readonly-code strong{font-size:15px}@media(max-width:700px){.edit-head{display:block}.edit-head .btn{margin-top:12px}.edit-grid{grid-template-columns:1fr}.edit-actions .btn{width:100%}}
+</style></head><body data-admin-page="student-edit">
+<header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>تعديل بيانات الطالب</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
+<main class="page"><div class="container layout">
+<aside class="sidebar"><a href="dashboard.html">نظرة عامة</a><a href="registrations.html">طلبات التسجيل</a><a class="active" href="students.html">الطلاب</a><a href="teachers.html">المعلمون</a><a href="lessons.html">الحصص</a><a href="#" data-demo-alert>التقارير</a></aside>
+<section class="edit-wrap">
+<div class="edit-head"><div><h1 class="page-title" id="editStudentTitle">تعديل بيانات الطالب</h1><p class="muted">عدّل البيانات الأساسية فقط، بينما تبقى البرامج والمواد من طلب التسجيل.</p></div><a class="btn btn-light" id="backToStudentRecord" href="students.html">العودة إلى السجل</a></div>
+<div id="editStudentError" class="notice hide"></div>
+<form id="studentEditForm" class="edit-card hide">
+<div class="edit-grid">
+<div class="field"><label for="se_full_name">اسم الطالب</label><input id="se_full_name" required></div>
+<div class="readonly-code"><span>رقم الطالب</span><strong id="se_student_code">—</strong></div>
+<div class="field"><label for="se_whatsapp">الهاتف</label><input id="se_whatsapp" inputmode="tel"></div>
+<div class="field"><label for="se_status">الحالة</label><select id="se_status"><option value="active">نشط</option><option value="paused">موقوف مؤقتًا</option><option value="completed">مكتمل</option><option value="inactive">غير نشط</option></select></div>
+</div>
+<div class="edit-actions"><button class="btn btn-primary" id="saveStudentEdit" type="submit">حفظ التعديلات</button><a class="btn btn-secondary" id="cancelStudentEdit" href="students.html">إلغاء</a></div>
+<p class="muted" id="studentEditStatus" style="margin:12px 0 0"></p>
+</form>
+</section></div></main>
+<script src="../assets/js/admin.js?v=9.2.0"></script>
+<script>document.addEventListener('click',e=>{const a=e.target.closest('[data-demo-alert]');if(a){e.preventDefault();alert('هذه الوحدة ضمن المرحلة التالية من نظام الأكاديمية.');}});</script>
+</body></html>

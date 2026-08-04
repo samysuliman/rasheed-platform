@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>لوحة مدير المؤسسة | منصة رشيد</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    /* Dashboard desktop layout: use the available screen width without affecting other admin pages. */
+    body[data-admin-page="dashboard"] .container{width:min(1720px,96%)}
+    body[data-admin-page="dashboard"] .layout{grid-template-columns:250px minmax(0,1fr);gap:28px;align-items:start}
+    body[data-admin-page="dashboard"] #dashboardRoot{min-width:0;width:100%}
+    body[data-admin-page="dashboard"] .sidebar{width:100%}
+    .dashboard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .dashboard-head .page-title{margin-bottom:5px}
+    .dashboard-date{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;color:var(--muted);font-size:14px;white-space:nowrap}
+    .dashboard-kpis{display:grid;grid-template-columns:repeat(4,minmax(190px,1fr));gap:16px}
+    .dashboard-kpi{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;min-height:144px;display:flex;flex-direction:column;justify-content:space-between}
+    .dashboard-kpi-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .dashboard-kpi-icon{width:42px;height:42px;border-radius:14px;background:var(--emerald-soft);display:grid;place-items:center;font-size:20px}
+    .dashboard-kpi strong{font-size:30px;color:var(--emerald-dark);line-height:1}
+    .dashboard-kpi small{color:var(--muted);font-size:12px}
+    .dashboard-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(330px,.75fr);gap:20px;margin-top:20px}
+    .dashboard-panel{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px}
+    .panel-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .panel-title-row h2{font-size:21px;margin:0}
+    .panel-title-row a{font-size:14px;color:var(--emerald-dark);font-weight:700}
+    .attention-list,.activity-list{display:grid;gap:10px}
+    .attention-item,.activity-item{border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .attention-item strong,.activity-item strong{display:block;margin-bottom:3px}
+    .attention-item small,.activity-item small{color:var(--muted)}
+    .attention-count{min-width:40px;height:40px;padding:0 10px;border-radius:13px;background:#fff6dd;color:#8a5a00;display:grid;place-items:center;font-weight:800}
+    .quick-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .quick-action{border:1px solid var(--line);border-radius:16px;padding:15px 11px;text-align:center;background:#fff;transition:.18s transform,.18s border-color}
+    .quick-action:hover{transform:translateY(-2px);border-color:#9bc9bb}
+    .quick-action span{font-size:22px;display:block;margin-bottom:7px}
+    .quick-action strong{font-size:14px}
+    .status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:12px 0}
+    .status-row:last-child{border-bottom:0;padding-bottom:0}
+    .status-dot{width:10px;height:10px;border-radius:50%;background:#2e9b72;display:inline-block;margin-left:7px}
+    .empty-dashboard{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+    .dashboard-loading{opacity:.6;pointer-events:none}
+    @media(max-width:1180px){body[data-admin-page="dashboard"] .container{width:min(96%,1400px)}body[data-admin-page="dashboard"] .layout{grid-template-columns:220px minmax(0,1fr);gap:20px}.dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}}
+    @media(max-width:960px){body[data-admin-page="dashboard"] .layout{display:block}body[data-admin-page="dashboard"] .sidebar{width:auto}}
+    @media(max-width:650px){.dashboard-head{display:block}.dashboard-date{display:inline-block;margin-top:10px}.dashboard-kpis{grid-template-columns:1fr 1fr}.dashboard-kpi{min-height:115px;padding:14px}.dashboard-kpi strong{font-size:25px}.quick-actions{grid-template-columns:repeat(2,1fr)}.dashboard-panel{padding:17px}}
+  </style>
+</head>
+<body data-admin-page="dashboard">
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>لوحة المدير</small></span></a>
+    <a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a>
+  </div>
+</header>
+<main class="page">
+  <div class="container layout">
+    <aside class="sidebar">
+      <a href="platform-dashboard.html">لوحة المالك</a><a class="active" href="dashboard.html">نظرة عامة</a><a href="organization.html">المؤسسات والمجمعات</a><a href="people.html">الأشخاص والحسابات</a><a href="academic-structure.html">الهيكل الأكاديمي</a><a href="access-control.html">الأدوار والتكليفات</a><a href="platform-modules.html">الباقات والوحدات</a><a href="registrations.html">طلبات التسجيل</a><a href="students.html">الطلاب</a><a href="teachers.html">المعلمون</a><a href="#" data-demo-alert>الحصص</a><a href="#" data-demo-alert>التقارير</a>
+    </aside>
+    <section id="dashboardRoot" class="dashboard-loading">
+      <div class="dashboard-head">
+        <div><h1 class="page-title">لوحة مدير المؤسسة</h1><p class="muted">ملخص تنفيذي سريع لأهم ما يحتاج متابعتك اليوم.</p></div>
+        <div class="dashboard-date" id="dashboardDate">—</div>
+      </div>
+      <div id="loadError" class="notice hide">تعذر تحميل بعض بيانات اللوحة. يمكنك متابعة استخدام الصفحات الأخرى بصورة طبيعية.</div>
+
+      <div class="dashboard-kpis">
+        <article class="dashboard-kpi"><div class="dashboard-kpi-top"><span>إجمالي الطلاب</span><span class="dashboard-kpi-icon">🎓</span></div><strong data-dashboard-kpi="students">—</strong><small>الطلاب المسجلون في النظام</small></article>
+        <article class="dashboard-kpi"><div class="dashboard-kpi-top"><span>إجمالي المعلمين</span><span class="dashboard-kpi-icon">👨‍🏫</span></div><strong data-dashboard-kpi="teachers">—</strong><small>المعلمون المسجلون حاليًا</small></article>
+        <article class="dashboard-kpi"><div class="dashboard-kpi-top"><span>الأشخاص والحسابات</span><span class="dashboard-kpi-icon">👥</span></div><strong data-dashboard-kpi="people">—</strong><small>بطاقات الأشخاص الموحدة</small></article>
+        <article class="dashboard-kpi"><div class="dashboard-kpi-top"><span>طلبات التسجيل</span><span class="dashboard-kpi-icon">📝</span></div><strong data-dashboard-kpi="registrations">—</strong><small><b data-dashboard-kpi="newRegistrations">—</b> طلبات جديدة تحتاج المراجعة</small></article>
+      </div>
+
+      <div class="dashboard-grid">
+        <div>
+          <section class="dashboard-panel">
+            <div class="panel-title-row"><h2>ما يحتاج انتباهك</h2><a href="registrations.html">عرض الطلبات</a></div>
+            <div class="attention-list">
+              <a class="attention-item" href="registrations.html"><div><strong>طلبات تسجيل جديدة</strong><small>طلبات لم تبدأ مراجعتها بعد</small></div><span class="attention-count" data-attention="new">—</span></a>
+              <a class="attention-item" href="registrations.html"><div><strong>طلبات تم التواصل معها</strong><small>تحتاج قرار قبول أو متابعة</small></div><span class="attention-count" data-attention="contacted">—</span></a>
+              <a class="attention-item" href="people.html"><div><strong>أشخاص بلا حساب دخول</strong><small>يمكن إنشاء الحساب عند الحاجة</small></div><span class="attention-count" data-attention="withoutAccount">—</span></a>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" style="margin-top:18px">
+            <div class="panel-title-row"><h2>أحدث طلبات التسجيل</h2><a href="registrations.html">فتح القائمة كاملة</a></div>
+            <div class="activity-list" id="recentRegistrations"><div class="empty-dashboard">جارٍ تحميل أحدث الطلبات...</div></div>
+          </section>
+        </div>
+
+        <div>
+          <section class="dashboard-panel">
+            <div class="panel-title-row"><h2>إجراءات سريعة</h2></div>
+            <div class="quick-actions">
+              <a class="quick-action" href="people.html"><span>➕</span><strong>إضافة شخص</strong></a>
+              <a class="quick-action" href="registrations.html"><span>📝</span><strong>مراجعة الطلبات</strong></a>
+              <a class="quick-action" href="students.html"><span>🎓</span><strong>سجل الطلاب</strong></a>
+              <a class="quick-action" href="teachers.html"><span>👨‍🏫</span><strong>سجل المعلمين</strong></a>
+              <a class="quick-action" href="academic-structure.html"><span>🏫</span><strong>الهيكل الأكاديمي</strong></a>
+              <a class="quick-action" href="access-control.html"><span>🔐</span><strong>التكليفات</strong></a>
+            </div>
+          </section>
+
+          <section class="dashboard-panel" style="margin-top:18px">
+            <div class="panel-title-row"><h2>حالة النظام</h2></div>
+            <div class="status-row"><span><i class="status-dot"></i>قاعدة البيانات</span><strong id="dbStatus">جارٍ التحقق</strong></div>
+            <div class="status-row"><span><i class="status-dot"></i>حساب المدير</span><strong>نشط</strong></div>
+            <div class="status-row"><span><i class="status-dot"></i>آخر تحديث للوحة</span><strong id="lastRefresh">—</strong></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="../assets/js/admin.js?v=1.3.0"></script>
+<script src="../assets/js/dashboard.js?v=20260802.2"></script>
+</body>
+</html>

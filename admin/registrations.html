@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>طلبات التسجيل | منصة رشيد التعليمية</title><link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+.toolbar{display:grid;grid-template-columns:1fr 220px;gap:12px;margin:18px 0}.table-wrap{overflow:auto;border-radius:18px}.table{min-width:1050px}.table small{color:var(--muted)}.status-select{min-width:130px;padding:9px}.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.details-grid div{display:flex;flex-direction:column;padding:12px;background:var(--bg);border-radius:12px}.details-grid b{color:var(--emerald-dark)}dialog{border:0;border-radius:22px;max-width:720px;width:min(92%,720px);padding:0;box-shadow:0 24px 70px rgba(0,0,0,.22)}dialog::backdrop{background:rgba(0,0,0,.35)}.dialog-body{padding:24px}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:15px}.icon-btn{border:0;background:var(--emerald-soft);border-radius:10px;width:40px;height:40px;cursor:pointer}@media(max-width:700px){.toolbar,.details-grid{grid-template-columns:1fr}}
+</style></head><body data-admin-page="registrations">
+<header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>طلبات التسجيل</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
+<main class="page"><div class="container layout">
+<aside class="sidebar"><a href="dashboard.html">نظرة عامة</a><a class="active" href="registrations.html">طلبات التسجيل</a><a href="students.html">الطلاب</a><a href="teachers.html">المعلمون</a><a href="#">الحصص</a><a href="#">التقارير</a></aside>
+<section><h1 class="page-title">طلبات التسجيل</h1><p class="muted">جميع الطلبات الواردة من نموذج التسجيل في الأكاديمية.</p>
+<div id="loadError" class="notice hide">تعذر تحميل الطلبات. تحقق من صلاحية حساب المدير وسياسات RLS.</div>
+<div class="kpis"><div class="kpi"><span>الكل</span><strong data-kpi="all">—</strong></div><div class="kpi"><span>جديد</span><strong data-kpi="new">—</strong></div><div class="kpi"><span>تم التواصل</span><strong data-kpi="contacted">—</strong></div><div class="kpi"><span>مقبول</span><strong data-kpi="accepted">—</strong></div></div>
+<div class="toolbar"><input id="searchBox" type="search" placeholder="بحث بالاسم أو الهاتف أو المسار..."><select id="statusFilter"><option value="">كل الحالات</option><option value="new">جديد</option><option value="reviewed">تمت المراجعة</option><option value="contacted">تم التواصل</option><option value="accepted">مقبول</option><option value="deferred">مؤجل</option><option value="rejected">مرفوض</option></select></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>الطالب</th><th>العمر</th><th>الدولة / المدينة</th><th>واتساب</th><th>المسار</th><th>المستوى</th><th>الوقت</th><th>الحالة</th><th></th></tr></thead><tbody id="registrationsBody"><tr><td colspan="9" style="text-align:center">جارٍ تحميل الطلبات...</td></tr></tbody></table></div>
+</section></div></main>
+<dialog id="detailsDialog"><div class="dialog-body"><div class="dialog-head"><h2>تفاصيل الطلب</h2><button id="closeDialog" class="icon-btn" aria-label="إغلاق">✕</button></div><div id="detailsContent"></div></div></dialog>
+<script src="../assets/js/admin.js?v=1.3.0"></script></body></html>

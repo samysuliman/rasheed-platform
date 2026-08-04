@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة المعلم | منصة رشيد التعليمية</title><link rel="stylesheet" href="../assets/css/styles.css">
+</head><body>
+<header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>لوحة المعلم</small></span></a><a class="btn btn-secondary" href="../login.html">تسجيل الخروج</a></div></header>
+<main class="page"><div class="container">
+<div id="rolePreviewBanner" class="panel hide" style="margin-bottom:18px;border-color:#d8b34f;background:#fff9e8">
+<strong>🛡️ وضع معاينة المدير — المعلم</strong>
+<p class="muted">دخلت بنفس حساب المدير لتجربة ما يراه المعلم. سنربط الحصص والطلاب والواجبات والاختبارات في المرحلة التالية.</p>
+<a class="btn btn-secondary" href="../admin/dashboard.html">العودة إلى الإدارة</a>
+</div>
+<h1 class="page-title">بوابة المعلم</h1>
+<div class="kpis">
+<div class="kpi"><span>حصصي</span><strong>—</strong></div>
+<div class="kpi"><span>طلابي</span><strong>—</strong></div>
+<div class="kpi"><span>الواجبات</span><strong>—</strong></div>
+<div class="kpi"><span>الاختبارات</span><strong>—</strong></div>
+</div>
+<div class="panel" style="margin-top:18px">
+      <h2>📎 رفع مرفق مادة</h2>
+      <p class="muted">اختر المسار والطلاب ثم ارفع الملف. سيظهر للطلاب داخل «مرفقات المادة».</p>
+      <form id="teacherMaterialForm">
+        <div class="form-grid">
+          <div><label>المسار</label><select id="teacherMaterialTrack" required>
+            <option value="">اختر المسار</option>
+            <option>التأسيس</option><option>التلاوة والتجويد</option><option>الحفظ والإتقان</option>
+            <option>الإجازة والسند</option><option>العقيدة</option><option>الفقه</option><option>الحديث</option>
+            <option>التفسير</option><option>السيرة النبوية</option><option>العربية لغير الناطقين بها</option>
+          </select></div>
+          <div><label>عنوان المرفق</label><input id="teacherMaterialTitle" required placeholder="مثال: ملخص الدرس الأول"></div>
+        </div>
+        <div style="margin-top:12px"><label>وصف مختصر</label><textarea id="teacherMaterialDescription" rows="3"></textarea></div>
+        <div style="margin-top:12px"><label>الطلاب</label><div id="teacherMaterialStudents" class="panel" style="margin-top:6px;padding:12px">جارٍ تحميل الطلاب...</div></div>
+        <div style="margin-top:12px"><label>الملف</label><input id="teacherMaterialFile" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png,.webp,.mp3,.mp4" required></div>
+        <button class="btn btn-primary" type="submit" style="margin-top:14px">رفع المرفق</button>
+        <span id="teacherMaterialMsg" class="muted" style="margin-inline-start:10px"></span>
+      </form>
+    </div>
+</div></main>
+<script src="../assets/js/role-preview.js?v=1.0.0"></script>
+<script src="../assets/js/teacher.js?v=1.0.0"></script>
+</body></html>

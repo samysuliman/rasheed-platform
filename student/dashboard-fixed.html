@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>لوحة الطالب | منصة رشيد التعليمية</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .student-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
+    .portal-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
+    .portal-card strong{display:block;font-size:28px;margin-top:8px}
+    .section-panel{margin-top:18px}
+    .lesson-list{display:grid;gap:12px}
+    .lesson-card{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff}
+    .lesson-card.upcoming{background:#eef9f1}
+    .lesson-card.current{background:#fff8e7}
+    .lesson-card.finished{background:#f2f3f5;color:#667085}
+    .lesson-card.cancelled{background:#fff1f1;color:#8a3a3a}
+    .lesson-row{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    .lesson-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+    .track-chip{display:inline-flex;padding:5px 9px;border-radius:999px;background:#eef6f2;border:1px solid #dce9e2;font-size:12px;font-weight:800}
+    .join-btn{display:inline-flex;align-items:center;justify-content:center;background:#16833d;color:#fff!important;padding:9px 14px;border-radius:10px;text-decoration:none;font-weight:800}
+    .join-btn.disabled{opacity:.45;pointer-events:none}
+    .empty{padding:18px;text-align:center;color:var(--muted)}
+    .subject-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    @media(max-width:900px){.student-grid{grid-template-columns:repeat(2,1fr)}.subject-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.student-grid,.subject-grid{grid-template-columns:1fr}}
+  
+/* Student dashboard v2 */
+.student-profile-head{display:flex;align-items:center;gap:14px}
+.student-avatar-wrap{position:relative;width:70px;height:70px;flex:0 0 70px}
+.student-avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 18px rgba(0,0,0,.12);background:#eef5f1}
+.student-avatar-edit{position:absolute;bottom:-2px;left:-2px;width:28px;height:28px;border:0;border-radius:50%;cursor:pointer;background:#174c3c;color:#fff}
+.student-top-actions{display:flex;gap:8px;align-items:center}
+.notification-btn{position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:20px}
+.notification-count{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;padding:0 5px;border-radius:12px;background:#b42318;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.notification-popover{position:absolute;z-index:30;top:54px;left:0;width:min(360px,90vw);background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 14px 35px rgba(0,0,0,.14);padding:12px}
+.dashboard-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0}
+.dashboard-card{border:1px solid var(--border);background:#fff;border-radius:18px;padding:10px;text-decoration:none;color:inherit;cursor:pointer;transition:.18s;min-width:0}
+.dashboard-card:hover,.dashboard-card.active{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,73,57,.12);border-color:#9fc4b7}
+.dashboard-card-visual{height:78px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:9px;background:linear-gradient(135deg,#edf8f3,#f7fbf9)}
+.dashboard-card:nth-child(2) .dashboard-card-visual{background:linear-gradient(135deg,#eef5ff,#fafcff)}
+.dashboard-card:nth-child(3) .dashboard-card-visual{background:linear-gradient(135deg,#fff5df,#fffaf0)}
+.dashboard-card:nth-child(4) .dashboard-card-visual{background:linear-gradient(135deg,#f4efff,#fbf9ff)}
+.dashboard-card:nth-child(5) .dashboard-card-visual{background:linear-gradient(135deg,#eaf8f4,#f7fcfa)}
+.dashboard-card h3{margin:0;font-size:16px;text-align:center}.dashboard-card .dash-count{display:block;text-align:center;font-size:21px;font-weight:800;color:#174c3c;margin:4px 0}.dashboard-card p{font-size:11px;text-align:center;margin:0;color:var(--muted);line-height:1.45}
+.student-detail-panel{display:none}.student-detail-panel.is-open{display:block}
+@media(max-width:1050px){.dashboard-cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.dashboard-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.dashboard-cards{grid-template-columns:1fr}}
+
+
+/* Final dashboard visibility fix */
+.student-detail-panel{display:none !important;margin-top:18px}
+.student-detail-panel.is-open{display:block !important}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>لوحة الطالب</small></span></a>
+    <button class="btn btn-secondary" type="button" data-student-logout>تسجيل الخروج</button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <section>
+      <div id="adminPreviewBanner" class="panel hide" style="margin-bottom:16px;border-color:#d8b34f;background:#fff9e8">
+        <div style="display:flex;gap:12px;justify-content:space-between;align-items:end;flex-wrap:wrap">
+          <div>
+            <strong>🛡️ وضع معاينة المدير</strong>
+            <p class="muted" style="margin:5px 0 0">أنت تستعرض البوابة كما يراها الطالب، دون استخدام كلمة مرور الطالب.</p>
+          </div>
+          <div class="field" style="min-width:260px">
+            <label for="previewStudentSelect">اختر الطالب</label>
+            <select id="previewStudentSelect"><option value="">جارٍ تحميل الطلاب...</option></select>
+          </div>
+          <a class="btn btn-secondary" href="../admin/dashboard.html">العودة إلى الإدارة</a>
+        </div>
+      </div>
+      <h1 id="studentWelcome" class="page-title">مرحبًا بك 🌿</h1>
+      <p class="muted">هذه بوابتك لمتابعة موادك وحصصك وواجباتك واختباراتك.</p>
+
+      <div id="studentLoadError" class="notice hide">تعذر تحميل بيانات الطالب.</div>
+
+      <section class="panel" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+  <div class="student-profile-head">
+    <div class="student-avatar-wrap">
+      <img id="studentAvatar" class="student-avatar" alt="صورة الطالب">
+      <button id="studentAvatarEdit" class="student-avatar-edit" type="button" title="تغيير الصورة">📷</button>
+      <input id="studentAvatarFile" type="file" accept="image/*" hidden>
+    </div>
+    <div><div class="muted">مرحبًا بك</div><h2 id="studentProfileName" style="margin:2px 0">الطالب</h2><div id="studentProfileSub" class="muted">بوابتك التعليمية</div></div>
+  </div>
+  <div class="student-top-actions" style="position:relative">
+    <button id="notificationBtn" class="notification-btn" type="button" title="التنبيهات">🔔<span id="notificationCount" class="notification-count">0</span></button>
+    <div id="notificationPopover" class="notification-popover hide"><strong>التنبيهات</strong><div id="notificationList" style="margin-top:10px" class="muted">لا توجد تنبيهات جديدة.</div></div>
+  </div>
+</section>
+<div class="dashboard-cards" id="studentDashboardCards">
+  <button class="dashboard-card" type="button" data-panel="subjects"><div class="dashboard-card-visual">📚</div><h3>موادي</h3><span class="dash-count" id="subjectsCardCount">0 مواد</span><p>المواد والمسارات المسجل فيها.</p></button>
+  <button class="dashboard-card" type="button" data-panel="lessons"><div class="dashboard-card-visual">🗓️</div><h3>حصصي</h3><span class="dash-count" id="lessonsCardCount">0 حصص</span><p>جدول الحصص القادمة.</p></button>
+  <button class="dashboard-card" type="button" data-panel="assignmentsSection"><div class="dashboard-card-visual">📝</div><h3>واجباتي</h3><span class="dash-count" id="assignmentsCardCount">0 واجبات</span><p>الواجبات المطلوب تسليمها.</p></button>
+  <button class="dashboard-card" type="button" data-panel="examsSection"><div class="dashboard-card-visual">📋</div><h3>اختباراتي</h3><span class="dash-count" id="examsCardCount">0 اختبارات</span><p>الاختبارات والدرجات.</p></button>
+  <button class="dashboard-card" type="button" data-panel="materials"><div class="dashboard-card-visual">📁</div><h3>مرفقات المادة</h3><span class="dash-count" id="materialsCardCount">0 مرفقات</span><p>ملفات المواد حسب المسار.</p></button>
+</div>
+<div id="nextLessonPanel" class="panel section-panel">
+        <h3>الحصة القادمة</h3>
+        <div id="nextLessonContent" class="empty">جارٍ تحميل الحصة القادمة...</div>
+      </div>
+
+      <div id="subjects" class="panel section-panel student-detail-panel">
+        <h3>موادي</h3>
+        <div id="subjectsList" class="subject-grid"><div class="empty">جارٍ تحميل المواد...</div></div>
+      </div>
+
+      <div id="lessons" class="panel section-panel student-detail-panel">
+        <div class="lesson-row">
+          <div><h3 style="margin:0">حصصي</h3><p class="muted" style="margin:4px 0 0">الحصص القادمة والسابقة المرتبطة بحسابك.</p></div>
+          <select id="studentLessonView" style="max-width:180px">
+            <option value="upcoming">القادمة</option>
+            <option value="today">اليوم</option>
+            <option value="week">هذا الأسبوع</option>
+            <option value="all">كل الحصص</option>
+          </select>
+        </div>
+        <div id="studentLessonsList" class="lesson-list" style="margin-top:14px"><div class="empty">جارٍ تحميل الحصص...</div></div>
+      </div>
+
+      
+
+      
+    </section>
+  </div>
+<section class="panel section-panel student-detail-panel" id="assignmentsSection">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div><h2>واجباتي</h2><p class="muted">الواجبات المطلوبة، المواعيد، والتسليم.</p></div>
+        <select id="assignmentFilter" style="max-width:180px"><option value="all">كل الواجبات</option><option value="open">متاح</option><option value="submitted">تم التسليم</option><option value="late">متأخر</option></select>
+      </div><div id="assignmentsList" style="display:grid;gap:12px;margin-top:14px"></div><div id="assignmentsEmpty" class="muted hide">لا توجد واجبات حاليًا.</div>
+    </section>
+    <section class="panel section-panel student-detail-panel" id="examsSection">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div><h2 style="margin-bottom:4px">اختباراتي</h2><p class="muted">مواعيد الاختبارات، المرفقات، والدرجات بعد التصحيح.</p></div>
+        <select id="examFilter" style="max-width:190px">
+          <option value="all">كل الاختبارات</option>
+          <option value="upcoming">قادم</option>
+          <option value="open">متاح الآن</option>
+          <option value="submitted">تم التسليم</option>
+          <option value="closed">انتهى</option>
+          <option value="graded">تم التصحيح</option>
+        </select>
+      </div>
+      <div id="examsList" style="display:grid;gap:12px;margin-top:14px"></div>
+      <div id="examsEmpty" class="muted hide">لا توجد اختبارات حاليًا.</div>
+    </section>
+
+<section id="materials" class="panel section-panel student-detail-panel">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div><h2 style="margin-bottom:4px">📎 مرفقات المادة</h2><p class="muted">اختر المسار لعرض الملفات التي رفعها المعلم لك.</p></div>
+        <select id="materialTrackFilter" style="max-width:260px">
+          <option value="all">كل المسارات</option>
+          <option>التأسيس</option><option>التلاوة والتجويد</option><option>الحفظ والإتقان</option>
+          <option>الإجازة والسند</option><option>العقيدة</option><option>الفقه</option>
+          <option>الحديث</option><option>التفسير</option><option>السيرة النبوية</option>
+          <option>العربية لغير الناطقين بها</option>
+        </select>
+      </div>
+      <div id="studentMaterialsList" style="display:grid;gap:12px;margin-top:14px"></div>
+      <p id="studentMaterialsEmpty" class="muted">لا توجد مرفقات متاحة حاليًا.</p>
+    </section>
+</main>
+
+<script src="../assets/js/student.js?v=1.2.0"></script>
+</body>
+</html>

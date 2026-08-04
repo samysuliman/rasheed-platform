@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="منصة رشيد التعليمية لإدارة المؤسسات والمدارس والأكاديميات ومراكز التدريب في نظام واحد.">
+<title>منصة رشيد التعليمية | Rasheed Education Platform</title>
+<link rel="icon" href="assets/logos/rasheed-platform-mark.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--green:#043f34;--green2:#075446;--gold:#dca923;--cream:#f7f2e8;--ink:#123c33;--white:#fff;--shadow:0 18px 55px rgba(4,45,37,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--cream);color:var(--ink)}a{text-decoration:none;color:inherit}button{font:inherit}.container{width:min(1600px,calc(100% - 16px));margin:auto}
+.header{position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(180deg,rgba(2,36,30,.94),rgba(2,36,30,.76));border-bottom:1px solid rgba(220,169,35,.65);backdrop-filter:blur(12px)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:11px;color:#fff}.brand img{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:14px;padding:5px}.brand strong{display:block;font-size:19px}.brand small{display:block;color:#e6b83c;font-size:11px;letter-spacing:1px;margin-top:2px}.actions{display:flex;align-items:center;gap:10px;direction:ltr}.btn{height:44px;padding:0 18px;border-radius:13px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-1px)}.btn-gold{background:linear-gradient(135deg,#f0c553,var(--gold));color:#17372f}.btn-outline{background:rgba(0,0,0,.12);border-color:rgba(255,255,255,.46);color:#fff}.btn-green{background:var(--green);color:#fff;border-color:rgba(220,169,35,.5)}
+.menu{position:relative}.menu-toggle:after{content:"▾";font-size:12px}.dropdown{position:absolute;top:58px;left:0;width:320px;background:rgba(3,48,40,.98);border:1px solid rgba(220,169,35,.55);border-radius:18px;padding:10px;box-shadow:0 25px 70px rgba(0,0,0,.35);display:none;direction:rtl}.menu.open .dropdown{display:block}.dropdown a{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:10px;border-radius:12px;color:#fff}.dropdown a:hover{background:rgba(220,169,35,.13)}.drop-icon{width:38px;height:38px;border:1px solid rgba(220,169,35,.26);border-radius:11px;display:grid;place-items:center;color:#efc75b}.dropdown b{display:block}.dropdown small{display:block;color:#c9ddd6;margin-top:3px;font-size:11px}
+.hero{min-height:100svh;position:relative;background:linear-gradient(135deg,#052f28,#073c33);display:flex;align-items:flex-start;padding:74px 0 2px;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 55% 35%,rgba(220,169,35,.11),transparent 38%);pointer-events:none}.hero-inner{position:relative;z-index:2;color:#fff;width:100%}.hero-layout{direction:ltr;display:grid;grid-template-columns:270px minmax(0,1fr);gap:12px;align-items:stretch;height:calc(100svh - 76px);min-height:560px}.hero-board{direction:rtl;min-width:0;border:1px solid rgba(220,169,35,.72);border-radius:24px;overflow:hidden;background:#062f29;box-shadow:0 25px 70px rgba(0,0,0,.34)}.hero-board img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.founder-hero-card{direction:rtl;background:linear-gradient(180deg,#064739,#04382f);border:1px solid var(--gold);border-radius:24px;overflow:hidden;box-shadow:0 25px 70px rgba(0,0,0,.34);display:flex;flex-direction:column;min-height:0}.founder-hero-photo{height:34%;min-height:188px;background:#dfe8e5;overflow:hidden}.founder-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}.founder-hero-content{padding:10px 15px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;flex:1}.founder-hero-content h1{margin:0 0 2px;color:#f0bd37;font-size:clamp(21px,1.7vw,27px);line-height:1.2}.founder-role{font-weight:900;font-size:16px;margin:0 0 2px}.founder-org{font-size:12px;color:#e5f0ec;margin:0 0 6px}.founder-vision{width:100%;border-top:1px solid rgba(220,169,35,.45);border-bottom:1px solid rgba(220,169,35,.45);padding:7px 5px;margin:0 0 7px;color:#f4ca5a;font-weight:900;line-height:1.5}.founder-contact{width:100%;height:44px;margin-top:2px;border-radius:12px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#f0c553,var(--gold));color:#17372f;font-weight:900;font-size:17px;cursor:pointer;transition:.2s}.founder-contact:hover{filter:brightness(1.05);transform:translateY(-1px)}.founder-direct{width:100%;display:grid;gap:5px;margin-top:7px;padding-top:7px;border-top:1px solid rgba(220,169,35,.42)}.founder-direct a{min-height:27px;display:flex;align-items:center;justify-content:center;gap:9px;color:#fff;font-size:13px;direction:ltr;border-radius:8px;transition:.2s}.founder-direct a:hover{color:#f4ca5a;background:rgba(255,255,255,.06)}.founder-direct .contact-symbol{color:#f0c553;font-size:17px;min-width:20px}.founder-linkedin{font-weight:700}
+.section{height:calc(100svh - 74px);min-height:560px;padding:14px 0;display:flex;align-items:stretch;scroll-margin-top:74px}.section.alt{background:#eef4f1}.section>.container{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;align-items:stretch}.section-head{text-align:center;margin-bottom:10px}.section-head h2{font-size:clamp(27px,3vw,42px);margin:0 0 4px;color:var(--green);line-height:1.1}.section-head p{margin:0;color:#61756d;font-size:clamp(14px,1.2vw,17px)}.visual-card{min-height:0;height:100%;width:max-content;max-width:100%;justify-self:center;background:transparent;border:0;border-radius:18px;padding:0;box-shadow:none;overflow:hidden;display:flex;align-items:center;justify-content:center}.visual-card img{display:block;width:auto;max-width:100%;height:100%;max-height:100%;object-fit:contain;border-radius:14px}.visual-actions{text-align:center;margin-top:6px}.visual-actions .btn{min-width:190px;height:42px}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:stretch}.grid-two .visual-card{height:100%}.grid-two img{height:100%;object-fit:cover}#start .section-head{margin-bottom:4px}#start .visual-card{height:100%;max-height:calc(100svh - 175px)}#start .visual-card img{height:100%;width:auto}.footer{background:var(--green);color:#fff;padding:26px 0;border-top:1px solid rgba(220,169,35,.45)}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.footer small{color:#cfe0da}.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a:hover{color:#efc75b}
+@media(max-width:900px){.section{height:auto;min-height:auto;padding:38px 0}.section>.container{display:block;height:auto}.visual-card{height:auto;width:100%;max-width:100%}.visual-card img{width:100%;height:auto;max-height:none}.grid-two{grid-template-columns:1fr}.actions{flex-wrap:wrap;justify-content:flex-start}.nav{height:auto;min-height:80px;padding:8px 0}.hero{padding-top:112px;min-height:auto}.hero-layout{grid-template-columns:1fr;height:auto;min-height:0}.hero-board{min-height:520px;order:1}.founder-hero-card{order:2;max-width:520px;width:100%;justify-self:center}.founder-hero-photo{height:360px}.dropdown{left:50%;transform:translateX(-50%)}}
+@media(max-width:620px){.section{height:auto;min-height:auto;padding:34px 0}.container{width:min(100% - 14px,1480px)}.brand strong{font-size:17px}.brand small{display:none}.brand img{width:48px;height:48px}.actions{gap:6px}.actions .btn{height:42px;padding:0 10px;font-size:13px}.hero{padding:98px 0 14px}.hero-layout{gap:12px}.hero-board{min-height:360px;border-radius:18px}.founder-hero-card{border-radius:18px}.founder-hero-photo{height:320px;min-height:0}.founder-hero-content{padding:17px 15px}.section{padding:56px 0}.dropdown{width:min(320px,94vw)}}
+
+.contact-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,25,21,.82);backdrop-filter:blur(8px);overflow:auto}.contact-modal.open{display:flex}.contact-box{position:relative;width:min(1080px,100%);max-height:calc(100svh - 36px);overflow:auto;background:#073f34;border:1px solid rgba(220,169,35,.6);border-radius:24px;padding:28px;box-shadow:0 30px 90px rgba(0,0,0,.45);color:#fff}.contact-close{position:absolute;top:14px;left:18px;border:0;background:transparent;font-size:30px;cursor:pointer;color:#f0c553}.contact-header{text-align:center;margin-bottom:22px}.contact-header h3{margin:0 0 6px;font-size:36px;color:#dca923}.contact-header p{margin:0;color:#e5f0ec}.contact-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:16px;direction:ltr}.contact-info,.contact-form{direction:rtl}.contact-info{display:grid;gap:10px}.contact-info-card{min-height:112px;color:#fff;font:inherit;width:100%;border:1px solid rgba(220,169,35,.46);background:rgba(255,255,255,.06);border-radius:15px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.contact-info-card b{color:#e6ad22;margin-bottom:7px}.contact-info-card a,.contact-info-card span{direction:ltr;font-size:13px;color:#fff;word-break:break-word}.contact-info-card.contact-action{cursor:pointer;transition:.2s ease}.contact-info-card.contact-action:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:#e0b33e}.contact-info-card.contact-action:focus-visible{outline:3px solid rgba(240,197,83,.45);outline-offset:2px}.contact-form{border:1px solid rgba(220,169,35,.46);background:rgba(255,255,255,.07);border-radius:16px;padding:20px}.contact-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.contact-field{display:grid;gap:6px}.contact-field.full{grid-column:1/-1}.contact-field label{font-weight:900}.contact-field input,.contact-field textarea{width:100%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);color:#fff;border-radius:10px;padding:12px 13px;outline:none}.contact-field input:focus,.contact-field textarea:focus{border-color:#e0b33e}.contact-field textarea{min-height:110px;resize:vertical}.contact-send{width:100%;height:48px;border:0;border-radius:10px;background:#21d266;color:#063d31;font-weight:900;font-size:17px;cursor:pointer;margin-top:12px}.contact-direct{text-align:center;margin:9px 0 0;color:#8ff0bd;font-size:13px}@media(max-width:900px){.hero-layout{grid-template-columns:1fr;height:auto;min-height:0}.hero-board{min-height:55svh}.founder-hero-card{max-width:560px;margin:auto}.founder-hero-photo{height:320px}.hero{padding-top:82px}}
+@media(max-width:720px){.contact-box{padding:22px 14px}.contact-layout{grid-template-columns:1fr}.contact-info{grid-template-columns:1fr 1fr}.contact-info-card{min-height:90px}.contact-form-grid{grid-template-columns:1fr}.contact-field.full{grid-column:auto}.contact-header h3{font-size:30px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="brand" href="#top"><img src="assets/logos/rasheed-platform-mark.png" alt="شعار منصة رشيد"><span><strong>منصة رشيد التعليمية</strong><small>RASHEED EDUCATION PLATFORM</small></span></a>
+<div class="actions">
+<div class="menu" id="menu"><button class="btn btn-outline menu-toggle" id="menuToggle" type="button">المنصة</button><nav class="dropdown" aria-label="قائمة المنصة">
+<a href="#why"><span class="drop-icon">❓</span><span><b>لماذا منصة رشيد؟</b><small>الهيكل والفوائد الإدارية</small></span></a>
+<a href="#about"><span class="drop-icon">💡</span><span><b>عن المنصة</b><small>نظام موحد للإدارة التعليمية</small></span></a>
+<a href="#dashboard"><span class="drop-icon">📊</span><span><b>المزايا</b><small>لوحة التحكم والوحدات الذكية</small></span></a>
+
+<a href="#start"><span class="drop-icon">🚀</span><span><b>كيف تبدأ؟</b><small>ثلاث خطوات واضحة</small></span></a>
+<a href="#founder"><span class="drop-icon">👤</span><span><b>المؤسس</b><small>مؤسس منصة رشيد التعليمية</small></span></a>
+<a href="#contact" data-contact-open><span class="drop-icon">✉️</span><span><b>تواصل معنا</b><small>للاستفسارات والتعاون</small></span></a>
+</nav></div>
+<a class="btn btn-outline" href="admin/platform-dashboard.html">لوحة المالك</a>
+<a class="btn btn-gold" href="login.html">تسجيل الدخول</a>
+</div></div></header>
+<main id="top">
+<section class="hero"><div class="container hero-inner"><div class="hero-layout">
+  <aside class="founder-hero-card" aria-label="بطاقة مؤسس منصة رشيد">
+    <div class="founder-hero-photo"><img src="assets/images/platform/founder-samy-hero.jpeg" alt="سامي سليمان رشيد مؤسس منصة رشيد التعليمية"></div>
+    <div class="founder-hero-content">
+      <h1>سامي سليمان رشيد</h1>
+      <p class="founder-role">المؤسس والرئيس التنفيذي</p>
+      <p class="founder-org">لمنصة رشيد التعليمية</p>
+      <p class="founder-vision">نحو منصة تعليمية عربية<br>تنافس عالميًا</p>
+      <button class="founder-contact" type="button" data-contact-open>✉ تواصل معنا</button>
+      <div class="founder-direct" aria-label="وسائل التواصل المباشر">
+        <a href="tel:+966559661920"><span class="contact-symbol">☎</span><span>+966 55 966 1920</span></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=samysuliman15%40gmail.com&su=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%B1%D8%B4%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D9%8A%D8%A9" target="_blank" rel="noopener"><span class="contact-symbol">✉</span><span>samysuliman15@gmail.com</span></a>
+        <a class="founder-linkedin" href="https://www.linkedin.com/in/samy-suliman-3342bb212/" target="_blank" rel="noopener"><span class="contact-symbol">in</span><span>Samy Suliman</span></a>
+      </div>
+    </div>
+  </aside>
+  <div class="hero-board"><img src="assets/images/platform/hero-management-board.png" alt="سبورة منصة رشيد التعليمية وإدارة المؤسسات والمجمعات والفروع"></div>
+</div></div></section>
+<section class="section" id="why"><div class="container"><div class="section-head"><h2>لماذا منصة رشيد؟</h2><p>هيكل إداري واضح يبدأ بالمؤسسة وينتهي بخدمة المعلم والطالب بكفاءة</p></div><div class="visual-card"><img src="assets/images/platform/why-rasheed.png" alt="إنفوجرافيك لماذا منصة رشيد"></div></div></section>
+<section class="section alt" id="about"><div class="container"><div class="section-head"><h2>عن منصة رشيد</h2><p>منصة تعليمية وإدارية موحدة تربط جميع مستويات المؤسسة في بيئة واحدة</p></div><div class="visual-card"><img src="assets/images/platform/hero-management-board.png" alt="مجلس إدارة يستخدم منصة رشيد"></div></div></section>
+<section class="section" id="dashboard"><div class="container"><div class="section-head"><h2>لوحة التحكم الذكية</h2><p>مؤشرات فورية وإدارة متكاملة للطلاب والمعلمين والمؤسسات والمالية والتقارير</p></div><div class="visual-card"><img src="assets/images/platform/dashboard-mockup.png" alt="لوحة التحكم الذكية لمنصة رشيد"></div></div></section>
+<section class="section alt" id="start"><div class="container"><div class="section-head"><h2>كيف تبدأ؟</h2><p>أضف مؤسستك، فعّل الوحدات التي تحتاجها، ثم ابدأ التشغيل</p></div><div class="visual-card"><img src="assets/images/platform/how-to-start.png" alt="خطوات البدء مع منصة رشيد"></div></div></section>
+<section class="section" id="founder"><div class="container"><div class="section-head"><h2>المؤسس</h2><p>المؤسس والرئيس التنفيذي لمنصة رشيد التعليمية</p></div><div class="visual-card"><img src="assets/images/platform/founder-profile.png" alt="بطاقة مؤسس منصة رشيد التعليمية"></div></div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><div><strong>منصة رشيد التعليمية</strong><br><small>إدارة تعليمية ذكية في نظام واحد</small></div><div class="footer-links"><a href="#why">لماذا منصة رشيد؟</a><a href="#founder">المؤسس</a><a href="login.html">تسجيل الدخول</a><a href="#contact" data-contact-open>تواصل معنا</a></div></div></footer>
+
+<div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+  <div class="contact-box">
+    <button class="contact-close" id="contactClose" type="button" aria-label="إغلاق">×</button>
+    <div class="contact-header">
+      <h3 id="contactTitle">تواصل معي</h3>
+      <p>أرسل رسالتك مباشرة عبر واتساب، وسأطّلع عليها في أقرب وقت.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <a class="contact-info-card contact-action" id="callContact" href="tel:+966559661920"><b>اتصال</b><span>+966 55 966 1920</span></a>
+        <a class="contact-info-card contact-action" id="emailContact" href="https://mail.google.com/mail/?view=cm&fs=1&to=samysuliman15%40gmail.com&su=%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%B9%D8%A8%D8%B1%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%B1%D8%B4%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%8A%D9%85%D9%8A%D8%A9" target="_blank" rel="noopener"><b>البريد الإلكتروني</b><span>samysuliman15@gmail.com</span></a>
+        <div class="contact-info-card"><b>LinkedIn</b><a href="https://www.linkedin.com/in/samy-suliman-3342bb212/" target="_blank" rel="noopener">الملف المهني</a></div>
+      </div>
+      <form class="contact-form" id="whatsappContactForm">
+        <div class="contact-form-grid">
+          <div class="contact-field"><label for="contactName">الاسم</label><input id="contactName" name="name" required></div>
+          <div class="contact-field"><label for="contactUserEmail">البريد الإلكتروني</label><input id="contactUserEmail" name="email" type="email"></div>
+          <div class="contact-field full"><label for="contactSubject">الموضوع</label><input id="contactSubject" name="subject" required></div>
+          <div class="contact-field full"><label for="contactMessage">الرسالة</label><textarea id="contactMessage" name="message" required></textarea></div>
+        </div>
+        <button class="contact-send" type="submit">إرسال عبر واتساب</button>
+        <p class="contact-direct">أو تواصل مباشرة عبر واتساب: +966 55 966 1920</p>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+const menu=document.getElementById('menu'),toggle=document.getElementById('menuToggle');
+toggle.addEventListener('click',()=>menu.classList.toggle('open'));
+document.addEventListener('click',e=>{if(!menu.contains(e.target))menu.classList.remove('open')});
+document.querySelectorAll('.dropdown a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const contactModal=document.getElementById('contactModal');
+const openContact=()=>contactModal.classList.add('open');
+const closeContact=()=>contactModal.classList.remove('open');
+document.querySelectorAll('[data-contact-open]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openContact()}));
+document.getElementById('contactClose').addEventListener('click',closeContact);
+contactModal.addEventListener('click',e=>{if(e.target===contactModal)closeContact()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeContact()});
+document.getElementById('whatsappContactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('contactName').value.trim();
+  const email=document.getElementById('contactUserEmail').value.trim();
+  const subject=document.getElementById('contactSubject').value.trim();
+  const message=document.getElementById('contactMessage').value.trim();
+  const text=[`السلام عليكم، أنا ${name}`,email?`البريد الإلكتروني: ${email}`:'',`الموضوع: ${subject}`,`الرسالة: ${message}`].filter(Boolean).join('\n');
+  window.open(`https://wa.me/966559661920?text=${encodeURIComponent(text)}`,'_blank','noopener');
+});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
+</script>
+</body></html>

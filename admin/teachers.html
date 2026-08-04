@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>المعلمون | منصة رشيد التعليمية</title><link rel="stylesheet" href="../assets/css/styles.css">
+<style>.toolbar{margin:18px 0}.table-wrap{overflow:auto;border-radius:18px}.table{min-width:850px}.table small{color:var(--muted)}.status-badge{display:inline-block;padding:8px 14px;border-radius:999px;background:#eaf6f1}</style></head><body data-admin-page="teachers">
+<header class="topbar"><div class="container nav"><a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>إدارة المعلمين</small></span></a><a class="btn btn-secondary" href="#" data-admin-logout>تسجيل الخروج</a></div></header>
+<main class="page"><div class="container layout">
+<aside class="sidebar"><a href="dashboard.html">نظرة عامة</a><a href="registrations.html">طلبات التسجيل</a><a href="students.html">الطلاب</a><a class="active" href="teachers.html">المعلمون</a><a href="lessons.html">الحصص</a><a href="#" data-demo-alert>التقارير</a></aside>
+<section><h1 class="page-title">المعلمون</h1><p class="muted">إدارة معلمي الأكاديمية وبياناتهم الأساسية.</p>
+<div id="loadError" class="notice hide">تعذر تحميل المعلمين. تحقق من صلاحيات جدول teachers.</div>
+<div class="kpis"><div class="kpi"><span>إجمالي المعلمين</span><strong data-teacher-kpi="all">—</strong></div><div class="kpi"><span>نشط</span><strong data-teacher-kpi="active">—</strong></div><div class="kpi"><span>موقوف مؤقتًا</span><strong data-teacher-kpi="paused">—</strong></div><div class="kpi"><span>غير نشط</span><strong data-teacher-kpi="inactive">—</strong></div></div>
+<div class="toolbar"><input id="teacherSearchBox" type="search" placeholder="بحث بالاسم أو الكود أو التخصص..."></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>المعلم</th><th>الكود</th><th>التخصص</th><th>واتساب</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody id="teachersBody"><tr><td colspan="6" style="text-align:center">جارٍ تحميل المعلمين...</td></tr></tbody></table></div>
+</section></div></main>
+<script src="../assets/js/admin.js?v=1.3.0"></script>
+<script>document.addEventListener('click',e=>{const a=e.target.closest('[data-demo-alert]');if(a){e.preventDefault();alert('هذه الوحدة ضمن المرحلة التالية من نظام الأكاديمية.');}});</script>
+</body></html>

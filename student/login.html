@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>دخول الطالب | منصة رشيد التعليمية</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    .login-card{max-width:520px;margin:auto}
+    .login-error{margin-top:14px;padding:13px;border-radius:14px;background:#fff1f1;color:#8f2d2d;border:1px solid #efb2b2}
+    .login-note{margin-top:14px;padding:13px;border-radius:14px;background:var(--emerald-soft);color:var(--emerald-dark)}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>بوابة الطالب</small></span></a>
+    <a class="btn btn-secondary" href="../index.html">الرئيسية</a>
+  </div>
+</header>
+<main class="page">
+  <div class="container login-card">
+    <h1 class="page-title">دخول الطالب</h1>
+    <p class="muted">ادخل بحساب الطالب المعتمد لدى الأكاديمية.</p>
+    <div class="panel">
+      <form id="studentLoginForm">
+        <div class="field">
+          <label for="email">البريد الإلكتروني</label>
+          <input id="email" type="email" autocomplete="username" required placeholder="student@example.com">
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label for="password">كلمة المرور</label>
+          <input id="password" type="password" autocomplete="current-password" required placeholder="••••••••">
+        </div>
+        <button id="studentLoginBtn" class="btn btn-primary" style="width:100%;margin-top:20px" type="submit">دخول الطالب</button>
+        <div id="studentLoginError" class="login-error hide" role="alert"></div>
+        <div class="login-note">يعرض الحساب مواد الطالب وحصصه فقط. الواجبات والاختبارات ستُربط في المرحلة التالية.</div>
+      </form>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/student.js?v=1.0.0"></script>
+</body>
+</html>

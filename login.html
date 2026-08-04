@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تسجيل الدخول | منصة رشيد التعليمية</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+.login-card{max-width:620px;margin:auto}
+.role-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 20px}
+.role-option{position:relative}
+.role-option input{position:absolute;opacity:0;pointer-events:none}
+.role-option label{display:flex;min-height:92px;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px solid var(--border);border-radius:14px;background:#fff;cursor:pointer;font-weight:800;text-align:center;padding:10px}
+.role-option label span{font-size:26px}
+.role-option input:checked+label{border-color:#16833d;background:#eef9f1;box-shadow:0 0 0 2px rgba(22,131,61,.08)}
+.login-note{margin-top:14px;padding:13px;border-radius:14px;background:var(--emerald-soft);color:var(--emerald-dark)}
+.login-error{margin-top:14px;padding:13px;border-radius:14px;background:#fff1f1;color:#8f2d2d;border:1px solid #efb2b2}
+@media(max-width:600px){.role-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+<link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#073d32"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="منصة رشيد التعليمية"/>
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="index.html"><span class="brand-mark">ر</span><span>منصة رشيد التعليمية<small>بوابة الدخول الموحدة</small></span></a>
+<a class="btn btn-secondary" href="index.html">الرئيسية</a>
+</div></header>
+<main class="page"><div class="container login-card">
+<h1 class="page-title">تسجيل الدخول إلى منصة رشيد التعليمية</h1>
+<p class="muted">اختر نوع الحساب ثم أدخل اسم المستخدم أو البريد الإلكتروني وكلمة المرور.</p>
+<div class="panel"><form id="unifiedLoginForm">
+<label>نوع الحساب</label>
+<div class="role-grid">
+<div class="role-option"><input id="roleStudent" name="loginRole" type="radio" value="student" checked><label for="roleStudent"><span>🎓</span>طالب</label></div>
+<div class="role-option"><input id="roleTeacher" name="loginRole" type="radio" value="teacher"><label for="roleTeacher"><span>👨‍🏫</span>معلم</label></div>
+<div class="role-option"><input id="roleParent" name="loginRole" type="radio" value="parent"><label for="roleParent"><span>👨‍👩‍👧</span>ولي أمر</label></div>
+<div class="role-option"><input id="roleAdmin" name="loginRole" type="radio" value="admin"><label for="roleAdmin"><span>🛡️</span>مدير</label></div>
+</div>
+<div class="field"><label for="email">اسم المستخدم أو البريد الإلكتروني</label><input id="email" type="text" autocomplete="username" required placeholder="username أو name@example.com"></div>
+<div class="field" style="margin-top:14px"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required placeholder="••••••••"></div>
+<button id="unifiedLoginBtn" class="btn btn-primary" style="width:100%;margin-top:20px" type="submit">تسجيل الدخول</button>
+<div id="loginError" class="login-error hide" role="alert"></div>
+<div class="login-note">اختيار الدور لا يمنح صلاحيات إضافية؛ النظام يتحقق من صلاحية الحساب الحقيقية قبل فتح البوابة.</div>
+</form></div>
+</div></main>
+<script src="assets/js/portal-login.js?v=1.0.0"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./sw.js").catch(function () {});
+  });
+}
+</script>
+</body></html>
